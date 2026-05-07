@@ -3,19 +3,18 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
-import MinhaImagem from "./components/MinhaImagem"
-import MinhaTabela from "./components/MinhaTabela"
-import MudarImagem from './components/MudarImagem'
-import Calculadora from './components/calculadora'
+import ListaPessoas from './components/listas_e_renderizacao/ListaPessoas'
+import Calculadora from './components/useStates/Calculadora'
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
+    <div>
+      <ListaPessoas/>
       <Calculadora/>
- 
+    </div>
     </>
   )
 }

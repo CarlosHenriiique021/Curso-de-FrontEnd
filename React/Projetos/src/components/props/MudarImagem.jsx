@@ -1,4 +1,4 @@
-import MinhaImagem from "./MinhaImagem";
+import MinhaImagem from "./props/MinhaImagem";
 import { useState } from "react";
 
 function MudarImagem(){

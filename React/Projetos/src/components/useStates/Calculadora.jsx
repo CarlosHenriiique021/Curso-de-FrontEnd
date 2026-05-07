@@ -63,37 +63,17 @@ const Calculadora = () => {
 
     return (
         /* O "Retângulo" da Calculadora: Adicionamos borda, sombra e preenchimento */
-        <div style={{
-            padding: '20px',
-            textAlign: 'center',
-            maxWidth: '320px',
-            margin: '50px auto',
-            backgroundColor: '#333', // Cor de fundo do corpo
-            borderRadius: '20px',    // Bordas arredondadas do retângulo
-            border: '5px solid #111', // Moldura externa
-            boxShadow: '0px 10px 20px rgba(0,0,0,0.3)' // Sombra para profundidade
-        }}> 
-            {/* Visor estilizado */}
-            <h2 style={{ 
-                backgroundColor: '#a7af7c', // Cor estilo tela LCD antiga
-                color: '#111', 
-                padding: '20px', 
-                textAlign: 'right', 
-                borderRadius: '5px',
-                fontFamily: 'monospace',
-                fontSize: '2rem',
-                marginBottom: '20px',
-                border: '2px inset #888'
-            }}>
+        <div className="visorCentralizado">
+            <h2 className="visorLcd">
                 {display}
             </h2>
 
             {/* Grid de Botões */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px' }}>
-                <button style={{ padding: '15px', background: '#d9534f', color: 'white', fontWeight: 'bold' }} onClick={limpar}>C</button>
-                <button style={{ padding: '15px', background: '#f0ad4e' }} onClick={() => definirOperacao('/')}>/</button>
-                <button style={{ padding: '15px', background: '#f0ad4e' }} onClick={() => definirOperacao('*')}>*</button>
-                <button style={{ padding: '15px', background: '#f0ad4e' }} onClick={() => definirOperacao('-')}>-</button>
+                <button className="styleLimpar" onClick={limpar}>C</button>
+                <button className="styleOperacao" onClick={() => definirOperacao('/')}>/</button>
+                <button className="styleOperacao" onClick={() => definirOperacao('*')}>*</button>
+                <button className="styleOperacao" onClick={() => definirOperacao('-')}>-</button>
 
                 {[7, 8, 9].map(n => <button key={n} onClick={() => inserirNumero(n)} style={{ padding: '15px' }}>{n}</button>)}
                 <button style={{ padding: '15px', background: '#f0ad4e' }} onClick={() => definirOperacao('+')}>+</button>
