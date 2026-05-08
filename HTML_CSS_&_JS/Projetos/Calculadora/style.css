@@ -1,0 +1,97 @@
+:root {
+    /* Variáveis de Ambiente: Facilitam a manutenção e garantem consistência visual */
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --glass-bg: rgba(30, 41, 59, 0.7); /* Fundo translúcido para o efeito vítreo */
+    --text-white: #ffffff;
+    --text-gray: #64748b;
+    --orange-primary: #f97316;
+    --orange-hover: #fb923c;
+    --btn-bg: rgba(30,41, 59, 0.4);
+    --btn-hover: rgba(51, 65, 85, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que o padding não altere a largura total dos elementos */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    display: flex; /* Centralização perfeita do card na tela */
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.calculator-card {
+    width: 100%;
+    max-width: 320px;
+    background: var(--glass-bg);
+    /* Glassmorphism: Desfoque de fundo combinado com transparência e bordas sutis */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    padding: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0,0, 0, 0.5); /* Profundidade visual */
+}
+
+.display-container {
+    margin-bottom: 1.5rem;
+    padding: 0.05rem;
+    text-align: right; /* Alinhamento padrão de calculadoras (direita para esquerda) */
+}
+
+#display {
+    color: var(--text-white);
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: -0.05rem;
+    white-space: nowrap; /* Impede quebras de linha com números longos */
+    overflow: hidden; 
+    text-overflow: ellipsis; /* Adiciona "..." se o número exceder a largura */
+    line-height: 1.2;
+}
+
+.buttons-grid {
+    display: grid;
+    /* Grid Layout: Divide o espaço em 4 colunas de frações iguais (1fr) */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 1rem 0;
+    border-radius: 1.25rem;
+    font-size: 1.125rem;
+    cursor: pointer;
+    /* Transition: Suaviza a interação do usuário ao passar o mouse ou clicar */
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--btn-bg);
+    color: var(--text-white);
+}
+
+.btn:active {
+    /* Micro-interação: Feedback visual de "aperto" diminuindo o botão levemente */
+    transform: scale(0.92);
+}
+
+.btn-operator {
+    /* Destaque visual para funções matemáticas (contraste com números) */
+    background: rgba(249, 115, 22, 0.15);
+    color: var(--orange-primary);
+    font-weight: 700;
+}
+
+.btn-equal {
+    /* Call to Action (CTA): O botão principal da interface */
+    background: var(--orange-primary);
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3);
+}
